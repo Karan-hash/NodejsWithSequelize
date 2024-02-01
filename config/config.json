@@ -1,0 +1,9 @@
+{
+    "development": {
+      "username": "root",
+      "password": "karan123456",
+      "database": "karandb",
+      "host": "localhost"
+    }
+  }
+  
