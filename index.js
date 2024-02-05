@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const User = require('./models/user');
+const userRoutes = require('./routes/userRoutes');
+// const User = require('./models/user');
+
+// Importing Models and Database connection
+require('./models/index');
 const app = express();
 
 dotenv.config(); // Load environment variables from .env file
@@ -11,14 +15,9 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Sync the model with the database
-User.sync({ force: false }) // Set force to true to drop and recreate the table on every app start
-  .then(() => {
-    console.log('Users table synced with the database.');
-  })
-  .catch((err) => {
-    console.error('Error syncing users table:', err);
-  });
+
+app.use('/api/user', userRoutes);
+
 
 // Define a simple route
 app.get('/', (req, res) => {

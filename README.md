@@ -28,3 +28,5 @@ json
 
 * We are using mysql and mysql workbench for this project.
 # Install mysql installer and mysql workbench both for running this project.
+
+* I am keeping all models in my connection file i.e ./models/index.js file.
